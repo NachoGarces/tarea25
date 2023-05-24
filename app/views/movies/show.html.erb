@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+<div class="col-4 py-2">
+  <div class="card">
+    <div class="card-body">
+      <%#= render @movie %>
+      <h5 class="card-title"><%= @movie.name %></h5>
+      La tienen: 
+      <% @clientsTiene.each do |ct| %>
+        <%= ct.name %>
+      <% end %>
+      <div>
+        <%= link_to "Editar pelicula", edit_movie_path(@movie), class: 'btn btn-warning card-link' %>
+        <%= link_to "Todas", movies_path, class: 'btn btn-success card-link' %>
+        <%= button_to "Destroy this movie", @movie, method: :delete, class: 'btn btn-danger card-link my-2' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if !!@clientsTiene %>
+  <p>La pelicula la tiene: <%= @clientsTiene.name %></p>
+<% end %>
